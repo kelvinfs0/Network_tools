@@ -1,0 +1,7 @@
+# netops-toolkit 依赖列表
+rich>=13.0.0          # 终端美化输出
+paramiko>=3.0.0       # SSH 客户端库
+PyYAML>=6.0           # YAML 解析
+dnspython>=2.4.0      # DNS 查询库
+psutil>=5.9.0         # 系统监控
+netmiko>=4.0.0        # 网络设备 SSH 管理（config_backup.py 使用）

@@ -1,0 +1,59 @@
+# ============================================================
+# 设备清单配置文件
+# 用于 batch_ssh.py 和 config_backup.py 脚本
+# ============================================================
+
+# 设备列表
+devices:
+  # ---- 示例 1: Cisco 路由器 ----
+  - name: "核心路由器"          # 设备名称（用于显示和日志）
+    host: "192.168.1.1"         # 管理 IP 地址
+    port: 22                    # SSH 端口（默认 22）
+    device_type: "cisco_ios"    # 设备类型（netmiko 格式）
+    username: "admin"           # SSH 用户名
+    password: "your_password"   # SSH 密码
+    secret: "enable_password"   # Enable 密码（可选，留空则不进入特权模式）
+
+  # ---- 示例 2: 华为交换机 ----
+  - name: "接入交换机-1"
+    host: "192.168.1.10"
+    port: 22
+    device_type: "huawei"       # 华为设备
+    username: "admin"
+    password: "huawei@123"
+    secret: ""                  # 留空表示不需要 enable
+
+  # ---- 示例 3: H3C 交换机 ----
+  - name: "汇聚交换机"
+    host: "192.168.1.20"
+    port: 22
+    device_type: "h3c"          # H3C 设备
+    username: "admin"
+    password: "h3c@123"
+    secret: ""
+
+  # ---- 示例 4: Linux 服务器 ----
+  - name: "监控服务器"
+    host: "192.168.1.100"
+    port: 22
+    device_type: "linux"        # Linux 设备
+    username: "root"
+    password: "linux@123"
+    secret: ""
+
+# ============================================================
+# 支持的设备类型 (device_type):
+#   cisco_ios     - Cisco IOS 路由器/交换机
+#   cisco_xe      - Cisco IOS-XE (如 ISR 4000, Catalyst 9000)
+#   cisco_xr      - Cisco IOS-XR (如 ASR 9000)
+#   cisco_nxos    - Cisco NX-OS (如 Nexus 系列)
+#   huawei        - 华为 VRP (路由器/交换机)
+#   h3c           - H3C Comware
+#   juniper       - Juniper Junos
+#   arista        - Arista EOS
+#   linux         - Linux 服务器
+#
+# 安全提示:
+#   建议在生产环境中使用密钥认证替代密码。
+#   可以将此文件权限设为 600: chmod 600 devices.yaml
+# ============================================================
